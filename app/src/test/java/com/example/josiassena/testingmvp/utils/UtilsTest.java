@@ -2,9 +2,13 @@ package com.example.josiassena.testingmvp.utils;
 
 import android.view.View;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
@@ -13,14 +17,22 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @RunWith (PowerMockRunner.class)
 public class UtilsTest {
 
+    @Mock
+    View view;
+    @Before
+    public void init(){
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @After
+    public void tearDown(){
+        Mockito.reset(view);
+    }
+
     @Test
     public void testShowView() throws Exception {
-        // Our mocked view object
-        final View view = Mockito.mock(View.class);
-
         // Set visibility to VISIBLE
         Utils.showView(view);
-
         // Verify that the showView method did what it was supposed to do. Set the view
         // visibility to View.VISIBLE
         Mockito.verify(view).setVisibility(View.VISIBLE);
@@ -28,12 +40,8 @@ public class UtilsTest {
 
     @Test
     public void testHideView() throws Exception {
-        // Our mocked view object
-        final View view = Mockito.mock(View.class);
-
         // Set visibility to GONE
         Utils.hideView(view);
-
         // Verify that the showView method did what it was supposed to do. Set the view
         // visibility to View.GONE
         Mockito.verify(view).setVisibility(View.GONE);
@@ -43,11 +51,13 @@ public class UtilsTest {
     public void testShowViewWithNullView() throws Exception {
         // Making sure the method handles null values properly
         Utils.showView(null);
+        Mockito.verify(view,Mockito.never()).setVisibility(View.VISIBLE);
     }
 
     @Test
     public void testHideViewWithNullView() throws Exception {
         // Making sure the method handles null values properly
         Utils.hideView(null);
+        Mockito.verify(view,Mockito.never()).setVisibility(View.GONE);
     }
 }
