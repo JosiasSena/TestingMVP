@@ -66,6 +66,7 @@ public class MainActivityUnitTest {
     public void testButtonClickHidesTextView() throws Exception {
         final TextView textView = (TextView) activity.findViewById(R.id.tv_to_show_hide);
         final Button button = (Button) activity.findViewById(R.id.btn_change_visibility);
+        textView.setVisibility(View.VISIBLE);
 
         AssertHelper.assertVisible(textView);
         AssertHelper.assertVisible(button);
@@ -79,6 +80,7 @@ public class MainActivityUnitTest {
     public void testButtonHasProperTextAfterHidingTextView() throws Exception {
         final TextView textView = (TextView) activity.findViewById(R.id.tv_to_show_hide);
         final Button button = (Button) activity.findViewById(R.id.btn_change_visibility);
+        textView.setVisibility(View.VISIBLE);
 
         AssertHelper.assertVisible(textView);
         AssertHelper.assertVisible(button);
@@ -92,7 +94,6 @@ public class MainActivityUnitTest {
     public void testButtonClickShowsTextView() throws Exception {
         final TextView textView = (TextView) activity.findViewById(R.id.tv_to_show_hide);
         final Button button = (Button) activity.findViewById(R.id.btn_change_visibility);
-
         textView.setVisibility(View.GONE);
 
         AssertHelper.assertHidden(textView);
