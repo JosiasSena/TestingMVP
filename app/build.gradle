@@ -38,7 +38,5 @@ dependencies {
     // These are all of our testing dependencies
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.1.1'
-    testCompile 'org.powermock:powermock:1.6.6'
-    testCompile 'org.powermock:powermock-module-junit4:1.6.6'
-    testCompile 'org.powermock:powermock-api-mockito:1.6.6'
+    compile 'org.mockito:mockito-android:2.7.22'
 }

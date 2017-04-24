@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 /**
  * File created by josiassena on 3/3/17.
  */
-@RunWith (PowerMockRunner.class)
+@RunWith (MockitoJUnitRunner.class)
 public class UtilsTest {
 
     @Mock
